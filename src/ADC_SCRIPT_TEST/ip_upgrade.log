@@ -1,0 +1,150 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Sat Oct 12 13:52:00 2019
+| Host         : omen running 64-bit Linux Mint 19.2 Tina
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_adc_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_adc_controller_0_0 (user.org:user:adc_controller:1.0) from (Rev. 31) to (Rev. 32)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Sat Oct 12 13:49:07 2019
+| Host         : omen running 64-bit Linux Mint 19.2 Tina
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_adc_controller_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_adc_controller_0_0 (user.org:user:adc_controller:1.0) from (Rev. 30) to (Rev. 31)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Fri Oct 11 16:42:27 2019
+| Host         : omen running 64-bit Linux Mint 19.2 Tina
+| Command      : upgrade_ip
+| Device       : xc7z010clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_adc_controller_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_adc_controller_0_0 (user.org:user:adc_controller:1.0) from (Rev. 29) to (Rev. 30)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'system_adc_controller_0_0'.
+
+
+-Upgrade has removed interface 'RST'
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_adc_controller_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'CE'
+
+-Upgrade has removed port 'RST'
+
+
+4. Customization warnings
+-------------------------
+
+An attempt to modify the value of disabled parameter 'RESET_TYPE' from '"1"' to ''1'' has been ignored for IP 'system_adc_controller_0_0'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv user.org:user:adc_controller:1.0 -user_name system_adc_controller_0_0
+set_property -dict "\
+  CONFIG.ADC_DATA_IN_A.LAYERED_METADATA {undef} \
+  CONFIG.ADC_DATA_WIDTH {14} \
+  CONFIG.C_S_ADC_AXI_DATA_ADDR_WIDTH {4} \
+  CONFIG.C_S_ADC_AXI_DATA_BASEADDR {0xFFFFFFFF} \
+  CONFIG.C_S_ADC_AXI_DATA_DATA_WIDTH {32} \
+  CONFIG.C_S_ADC_AXI_DATA_HIGHADDR {0x00000000} \
+  CONFIG.Component_Name {system_adc_controller_0_0} \
+  CONFIG.DIFF_ADC_CLK_IN.CAN_DEBUG {false} \
+  CONFIG.DIFF_ADC_CLK_IN.FREQ_HZ {125} \
+  CONFIG.ENABLE_AXI_INTERFACE {TRUE} \
+  CONFIG.ENABLE_CLK_DIV2 {FALSE} \
+  CONFIG.RESET_TYPE {'1'} \
+  CONFIG.S_ADC_AXI_DATA.ADDR_WIDTH {4} \
+  CONFIG.S_ADC_AXI_DATA.ARUSER_WIDTH {0} \
+  CONFIG.S_ADC_AXI_DATA.AWUSER_WIDTH {0} \
+  CONFIG.S_ADC_AXI_DATA.BUSER_WIDTH {0} \
+  CONFIG.S_ADC_AXI_DATA.CLK_DOMAIN {} \
+  CONFIG.S_ADC_AXI_DATA.DATA_WIDTH {32} \
+  CONFIG.S_ADC_AXI_DATA.FREQ_HZ {100000000} \
+  CONFIG.S_ADC_AXI_DATA.HAS_BRESP {1} \
+  CONFIG.S_ADC_AXI_DATA.HAS_BURST {0} \
+  CONFIG.S_ADC_AXI_DATA.HAS_CACHE {0} \
+  CONFIG.S_ADC_AXI_DATA.HAS_LOCK {0} \
+  CONFIG.S_ADC_AXI_DATA.HAS_PROT {1} \
+  CONFIG.S_ADC_AXI_DATA.HAS_QOS {0} \
+  CONFIG.S_ADC_AXI_DATA.HAS_REGION {0} \
+  CONFIG.S_ADC_AXI_DATA.HAS_RRESP {1} \
+  CONFIG.S_ADC_AXI_DATA.HAS_WSTRB {1} \
+  CONFIG.S_ADC_AXI_DATA.ID_WIDTH {0} \
+  CONFIG.S_ADC_AXI_DATA.MAX_BURST_LENGTH {1} \
+  CONFIG.S_ADC_AXI_DATA.NUM_READ_OUTSTANDING {1} \
+  CONFIG.S_ADC_AXI_DATA.NUM_READ_THREADS {1} \
+  CONFIG.S_ADC_AXI_DATA.NUM_WRITE_OUTSTANDING {1} \
+  CONFIG.S_ADC_AXI_DATA.NUM_WRITE_THREADS {1} \
+  CONFIG.S_ADC_AXI_DATA.PHASE {0.000} \
+  CONFIG.S_ADC_AXI_DATA.PROTOCOL {AXI4LITE} \
+  CONFIG.S_ADC_AXI_DATA.READ_WRITE_MODE {READ_WRITE} \
+  CONFIG.S_ADC_AXI_DATA.RUSER_BITS_PER_BYTE {0} \
+  CONFIG.S_ADC_AXI_DATA.RUSER_WIDTH {0} \
+  CONFIG.S_ADC_AXI_DATA.SUPPORTS_NARROW_BURST {0} \
+  CONFIG.S_ADC_AXI_DATA.WIZ_DATA_WIDTH {32} \
+  CONFIG.S_ADC_AXI_DATA.WIZ_NUM_REG {4} \
+  CONFIG.S_ADC_AXI_DATA.WUSER_BITS_PER_BYTE {0} \
+  CONFIG.S_ADC_AXI_DATA.WUSER_WIDTH {0} \
+  CONFIG.S_ADC_AXI_DATA_CLK.ASSOCIATED_BUSIF {S_ADC_AXI_DATA} \
+  CONFIG.S_ADC_AXI_DATA_CLK.ASSOCIATED_RESET {s_adc_axi_data_aresetn} \
+  CONFIG.S_ADC_AXI_DATA_CLK.CLK_DOMAIN {} \
+  CONFIG.S_ADC_AXI_DATA_CLK.FREQ_HZ {100000000} \
+  CONFIG.S_ADC_AXI_DATA_CLK.PHASE {0.000} \
+  CONFIG.S_ADC_AXI_DATA_RST.POLARITY {ACTIVE_LOW} \
+  CONFIG.USE_CHANNEL {Both} " [get_ips system_adc_controller_0_0]
+
+
