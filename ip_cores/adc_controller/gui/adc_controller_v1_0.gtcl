@@ -1,0 +1,2 @@
+# This file is automatically written.  Do not modify.
+proc gen_USERPARAMETER_RESET_TYPE_ENABLEMENT {ENABLE_RESET_PORT } {expr $ENABLE_RESET_PORT == true}

@@ -8,8 +8,11 @@ else
    exit 1
 fi
 
-
 ${vivado_path}/vivado -mode gui -source adc_interface_gen.tcl -tclargs "ADC_SCRIPT_TEST" PROJECT_PATH
 
 rm *.log *.jou *.zip *.str
 rm -R .Xil
+
+if [ -d "system" ]; then
+  rm -R system
+fi

@@ -14,11 +14,9 @@ entity adc_controller_v1_0 is
 		-- Users to add parameters here
         ENABLE_AXI_INTERFACE    :   boolean     := FALSE;
         ENABLE_CLK_DIV2         :   boolean     := FALSE;
-        ENABLE_RESET_PORT       :   boolean     := FALSE;
-        ENABLE_CE_PORT          :   boolean     := FALSE;
         USE_CHANNEL             :   string      := "Both";
         RESET_TYPE              :   std_logic   := '1';
-        ADC_DATA_WIDTH          :   natural     := 14;        
+        ADC_DATA_WIDTH          :   natural     := 14;
         
 		-- User parameters ends
 		-- Do not modify the parameters beyond this line
@@ -143,14 +141,7 @@ architecture arch_imp of adc_controller_v1_0 is
     signal aux_adc_data_a, aux_adc_data_b : std_logic_vector(ADC_DATA_WIDTH - 1 downto 0) := (others => '0');
     signal adc_data_a, adc_data_b : std_logic_vector(C_S_ADC_AXI_DATA_DATA_WIDTH - 1 downto 0) := (others => '0');
 
-    signal ce_sig   : std_logic := '0';
-    signal rst_sig  : std_logic := '0'; 
-
 begin
-
-   ce_sig  <= CE when ENABLE_CE_PORT = TRUE else '1';
-   rst_sig <= RST when ENABLE_RESET_PORT = TRUE else RESET_TYPE;
-
 
     USE_AXI : if ENABLE_AXI_INTERFACE = TRUE generate
         adc_controller_v1_0_S_ADC_AXI_DATA_inst : adc_controller_v1_0_S_ADC_AXI_DATA
@@ -198,8 +189,8 @@ begin
 	   port map(
 	       CLK_IN_P        =>  CLK_IN_P,
 	       CLK_IN_N        =>  CLK_IN_N,
-	       CE              =>  ce_sig,
-	       RST             =>  rst_sig,
+	       CE              =>  CE,
+	       RST             =>  RST,
 	       ADC_DATA_IN_A   =>  ADC_DATA_IN_A,
 	       ADC_DATA_IN_B   =>  ADC_DATA_IN_B,
 	       ADC_DATA_OUT_A  =>  ADC_DATA_OUT_A,
@@ -209,12 +200,12 @@ begin
 	       ADC_CLK_DIV2    =>  ADC_CLK_DIV2,
 	       
 	       S_AXI_CLK       =>  s_adc_axi_data_aclk,
-	       S_AXI_DATA_A    =>  adc_data_a,
-	       S_AXI_DATA_B    =>  adc_data_b  
+	       S_AXI_DATA_A    =>  aux_adc_data_a,
+	       S_AXI_DATA_B    =>  aux_adc_data_b  
 	   );
 	   
-	 -- adc_data_a <= std_logic_vector(resize(signed(aux_adc_data_a), C_S_ADC_AXI_DATA_DATA_WIDTH));
-     -- adc_data_b <= std_logic_vector(resize(signed(aux_adc_data_b), C_S_ADC_AXI_DATA_DATA_WIDTH));
+	 adc_data_a <= std_logic_vector(resize(signed(aux_adc_data_a), C_S_ADC_AXI_DATA_DATA_WIDTH));
+     adc_data_b <= std_logic_vector(resize(signed(aux_adc_data_b), C_S_ADC_AXI_DATA_DATA_WIDTH));
 
 
 end arch_imp;
